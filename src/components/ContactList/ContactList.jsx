@@ -1,18 +1,20 @@
 import { ContactItem } from '../ContactItem/ContactItem';
 import { Item, List } from './ContactList.styled';
 import { useSelector } from 'react-redux';
-import { getContacts } from 'redux/contacts/contacts-selectors';
-import { getFilter } from 'redux/filter/filter-selectors';
+import { selectContacts } from 'redux/contacts/contacts-selectors';
+import { selectFilter } from 'redux/filter/filter-selectors';
 
 export const ContactList = () => {
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
 
   const filterContacts = () => {
     const fcontacts = contacts.filter(contact => {
       return contact.name.toLowerCase().includes(filter.trim().toLowerCase());
     });
-    return fcontacts;
+    return fcontacts.sort((firstContact, secondContact) =>
+      firstContact.name.localeCompare(secondContact.name)
+    );
   };
 
   return (

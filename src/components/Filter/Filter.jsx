@@ -2,7 +2,7 @@ import { Label, Input } from './Filter.styled';
 import { useDispatch } from 'react-redux';
 import { filterContact } from 'redux/filter/filterSlice';
 import { useSelector } from 'react-redux';
-import { getFilter } from 'redux/filter/filter-selectors';
+import { selectFilter } from 'redux/filter/filter-selectors';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ export const Filter = () => {
     dispatch(filterContact(event.target.value));
   };
 
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
 
   return (
     <Label>

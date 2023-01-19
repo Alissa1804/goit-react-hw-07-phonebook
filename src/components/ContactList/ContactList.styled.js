@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Item = styled.li`
-  min-width: 450px;
+  min-width: 550px;
   display: flex;
   flex-grow: 1;
   align-items: baseline;
@@ -13,7 +13,7 @@ export const Item = styled.li`
 `;
 
 export const List = styled.ul`
-  max-width: 450px;
+  max-width: 585px;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
